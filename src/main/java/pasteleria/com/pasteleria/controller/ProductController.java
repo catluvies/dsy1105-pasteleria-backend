@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-//@CrossOrigin(origins = "*") // Descomenta si necesitas CORS abierto para la app móvil
+@CrossOrigin(origins = "*") // CORS habilitado para la app móvil
 public class ProductController {
 
     @Autowired
