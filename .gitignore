@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Oracle Wallet (NUNCA subir a GitHub) ###
+Wallet_*/
+*.sso
+*.p12
+*.pem
+keystore.jks
+truststore.jks
+tnsnames.ora
+sqlnet.ora
+ojdbc.properties
+
+### Archivos de configuración sensibles ###
+application-secrets.properties
+.env
+*.key
