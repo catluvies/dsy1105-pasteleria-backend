@@ -47,3 +47,4 @@ ojdbc.properties
 application-secrets.properties
 .env
 *.key
+railway-env-variables.txt
