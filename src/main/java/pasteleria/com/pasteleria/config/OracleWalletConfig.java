@@ -59,9 +59,23 @@ public class OracleWalletConfig implements EnvironmentPostProcessor {
                 return;
             }
 
-            // Crear directorio temporal para la wallet
-            Path tempWalletDir = Files.createTempDirectory("oracle_wallet");
-            System.out.println("📁 Creating temporary wallet directory: " + tempWalletDir);
+            // Crear directorio FIJO para la wallet (no temporal)
+            // Esto es importante porque el datasource URL tiene hardcodeado /tmp/oracle_wallet
+            Path tempWalletDir = Path.of("/tmp/oracle_wallet");
+            if (Files.exists(tempWalletDir)) {
+                System.out.println("📁 Wallet directory already exists, cleaning: " + tempWalletDir);
+                // Limpiar archivos existentes
+                Files.list(tempWalletDir).forEach(file -> {
+                    try {
+                        Files.delete(file);
+                    } catch (IOException e) {
+                        System.err.println("   ✗ Failed to delete " + file + ": " + e.getMessage());
+                    }
+                });
+            } else {
+                Files.createDirectories(tempWalletDir);
+                System.out.println("📁 Created wallet directory: " + tempWalletDir);
+            }
 
             // Decodificar y escribir archivos de wallet
             int filesWritten = 0;
