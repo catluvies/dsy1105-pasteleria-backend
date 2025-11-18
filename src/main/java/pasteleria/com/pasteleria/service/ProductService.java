@@ -37,8 +37,8 @@ public class ProductService {
         if (updatedProduct.getPrice() != null) {
             existing.setPrice(updatedProduct.getPrice());
         }
-        if (updatedProduct.getImageResId() != null) {
-            existing.setImageResId(updatedProduct.getImageResId());
+        if (updatedProduct.getImageUrl() != null) {
+            existing.setImageUrl(updatedProduct.getImageUrl());
         }
 
         return productRepository.save(existing);

@@ -21,7 +21,7 @@ public class Product {
     @Column(nullable = false)
     private Integer price;
 
-    @Column
-    private String imageResId;
+    @Column(name = "image_res_id")
+    private String imageUrl;
 
 }
